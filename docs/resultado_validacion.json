@@ -1,0 +1,9 @@
+{
+  "compilacion": "Correcta en Windows y GitHub Actions. APK de depuración generado (11,92 MB).",
+  "lint": "Correcto: 0 errores y 12 advertencias. Se conserva la base visual y las versiones verificadas.",
+  "pruebas": "2 aprobadas, 0 fallidas. Tema claro: título y último héroe; tema oscuro: renderizado y desplazamiento.",
+  "ejecucion": "Correcta en emulador Android 11/API 30 de GitHub Actions. Capturas de ambos temas y de la lista desplazada.",
+  "ejecucion_detalle": "Ejecución y capturas obtenidas en Android 11/API 30 mediante GitHub Actions.",
+  "git": "Proyecto publicado en main; código verificado: bde9d5e. Documentación, evidencias y APK incluidos en la entrega.",
+  "limitaciones": "La validación de ejecución se realizó en Android 11/API 30; API 24 y otros tamaños requieren dispositivos adicionales. Lint local conserva 12 advertencias por targetSdk 35, versiones de bibliotecas, tamaño nominal de vectores oficiales y etiqueta redundante del manifiesto. El APK es de depuración para evaluación."
+}

@@ -1,0 +1,54 @@
+name: Android - compilación y pruebas
+on:
+  push:
+    paths:
+      - 'app/**'
+      - 'gradle/**'
+      - '*.gradle.kts'
+      - 'gradle.properties'
+      - '.github/workflows/android.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools'
+      - name: Instalar SDK y habilitar KVM
+        run: |
+          sdkmanager 'platforms;android-37.0' 'build-tools;36.0.0'
+          chmod +x gradlew
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+      - name: Compilar y analizar
+        run: ./gradlew assembleDebug lintDebug assembleDebugAndroidTest --console=plain
+      - name: Pruebas de interfaz y capturas
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 30
+          target: default
+          arch: x86_64
+          profile: pixel_2
+          disable-animations: true
+          script: bash scripts/validar_y_capturar.sh
+      - name: Publicar evidencias
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: evidencias-android
+          path: |
+            docs/evidencias/
+            app/build/reports/androidTests/
+            app/build/outputs/androidTest-results/
+            app/build/reports/lint-results-debug.html
+            app/build/outputs/apk/debug/app-debug.apk

@@ -1,0 +1,13 @@
+Superheroes - entrega académica ULEAM
+
+Contiene una adaptación de basic-android-kotlin-compose-training-superheroes:
+https://github.com/google-developer-training/basic-android-kotlin-compose-training-superheroes
+Referencia descargada: a9a411c9b1494ca9109ada512ce899f67c90be1f
+
+Copyright (C) 2023 The Android Open Source Project.
+Código, ilustraciones e iconos originales: Apache License 2.0 (véase LICENSE).
+Fuentes Cabin: SIL Open Font License (véase ASSETS_LICENSE.txt).
+
+Adaptaciones de esta entrega: configuración de Gradle/SDK, pantalla principal,
+claves y formas de tarjetas, tratamiento de barras del sistema, pruebas,
+automatización de validación y documentación académica.

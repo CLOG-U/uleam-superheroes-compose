@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuites tests="2" failures="0" errors="0" skipped="0" time="0.000" timestamp="2026-10-19T00:32:37" hostname="localhost">
+  <testsuite name="com.example.superheroes.SuperheroesScreenTest" tests="2" failures="0" errors="0" skipped="0" time="4.007" timestamp="2026-10-19T00:32:37" hostname="localhost">
+    <properties>
+      <property name="device" value="emulator-5554" />
+    </properties>
+    <testcase name="darkTheme_rendersAndKeepsAllHeroesReachable" classname="com.example.superheroes.SuperheroesScreenTest" time="2.400" />
+    <testcase name="lightTheme_displaysTitleAndScrollsToLastHero" classname="com.example.superheroes.SuperheroesScreenTest" time="1.607" />
+  </testsuite>
+</testsuites>
